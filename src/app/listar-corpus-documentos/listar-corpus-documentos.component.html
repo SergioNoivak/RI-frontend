@@ -1,0 +1,26 @@
+<wired-card class="cartao-listagem" elevation="1" elevation="4">
+    <wired-button (click) = "avaliar()">Avaliar</wired-button>
+
+  <table class="table " style="font-size: 30px;">
+    <thead>
+      <tr>
+        <th></th>
+
+        <th>Nome do documento</th>
+
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let item of nomesDocumentos">
+        <div class="row mr-2">
+          <wired-spinner [style.display] ="!this.carregando[item]? 'none':'inherit'" spinning duration="1000"></wired-spinner>
+        </div>
+
+        <td style="font-size: 30px;" scope="row">{{item}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</wired-card>

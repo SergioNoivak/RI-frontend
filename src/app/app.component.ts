@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'new-app';
+  name = '';
+	input;
+	
+	 handleClick() {
+		this.name = this.input.value;
+	}
 }
