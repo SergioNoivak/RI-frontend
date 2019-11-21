@@ -7,12 +7,10 @@ import { HttpClient } from '@angular/common/http';
 export class EstatisticasService {
 
   constructor(private http:HttpClient) { }
-  getidf(){
-   return this.http.get<any>('http://localhost:3001/get-tf');
+  getidf(arquivo:string){
+   return this.http.post<any>('http://localhost:3001/get-tf',{data:arquivo});
   }
   getNomeDocs(){
     return this.http.get<any>('http://localhost:3001/documentos-corpus');
-
-    
   }
 }

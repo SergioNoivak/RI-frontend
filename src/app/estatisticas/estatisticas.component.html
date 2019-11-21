@@ -11,7 +11,7 @@
             </div>
             <div class="col-10">
                 
-                <wired-combo onclick="ajustarGrafico()" id="combo" selected="two">
+                <wired-combo #mydiv (selected)="ajustarGrafico()" id="combo" >
                     
                     <wired-item *ngFor="let item of nomeDocs;"  [value]="item" >{{item}}</wired-item>
                     
@@ -28,7 +28,7 @@
 <wired-card class="cartao-listagem" elevation="1" elevation="4">
    
 
-<div class="wrapper">
+<div #canvas class="wrapper">
     <div id="vis1"></div>
 </div>
 

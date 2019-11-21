@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as roughViz from 'rough-viz'
 import { EstatisticasService } from './estatisticas.service';
 import { async } from '@angular/core/testing';
@@ -8,25 +8,28 @@ import { async } from '@angular/core/testing';
   styleUrls: ['./estatisticas.component.scss']
 })
 export class EstatisticasComponent implements OnInit {
+   documentoSelecionado = "";
+   @ViewChild('mydiv', { static: false }) mydiv: ElementRef;
+   @ViewChild('canvas', { static: false }) canvas: ElementRef;
+
+
 
   constructor(private service: EstatisticasService) {
-    this.service.getNomeDocs().subscribe(dados=>{
-      this.nomeDocs = dados["data"]
-      console.log(this.nomeDocs)
-    })
+
   }
   ajustarGrafico(){
-
-    console.log("dfdsafsa")
-
+    this.canvas.nativeElement.innerHTML = '    <div id="vis1"></div>';
+    this.mudarGrafico(this.mydiv.nativeElement.value.value)
   }
   nomeDocs = []
   tf: Array<any> = []
   radius = []
   highlightLabel = []
-  labels = []
-  async ngOnInit() {
-    this.service.getidf().subscribe(data => {
+  labels = [] 
+  grafico = null;
+  mudarGrafico(documento:string){
+    this.radius = this.labels =this.tf= []
+    this.service.getidf(documento).subscribe(data => {
       this.tf = Object.entries(data["data"])
       for (let i = 0; i < this.tf.length; i++) {
         this.radius.push(+this.tf[i][1] * 300)
@@ -34,15 +37,15 @@ export class EstatisticasComponent implements OnInit {
 
       }
 
-      console.log(this.radius)
-      new roughViz.Scatter(
+      // console.log(this.radius)
+      this.grafico = new roughViz.Scatter(
         {
           element: '#vis1',
           data: {
             x: Array.from(Array(this.tf.length), (x, i) => i),
             y: Array.from(Array(this.tf.length), (x, i) => 240 * Math.random()),
           },
-          title: 'Tfs do documento',
+          title: 'Tfs do documento '+documento,
           width: 800,
           roughness: 0,
           radius: this.radius,
@@ -56,6 +59,17 @@ export class EstatisticasComponent implements OnInit {
 
     })
 
+
+  }
+
+  async ngOnInit() {
+    this.service.getNomeDocs().subscribe(dados=>{
+      this.nomeDocs = dados["data"]
+      // console.log(this.nomeDocs)
+      this.mudarGrafico(this.nomeDocs[0])
+
+
+  })
   }
 
 }
