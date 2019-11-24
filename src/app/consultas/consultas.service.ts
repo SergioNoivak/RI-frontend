@@ -9,9 +9,18 @@ export class ConsultasService {
   constructor(private http:HttpClient) { }
 
 
-  fazerConsulta(query:any){
-    return this.http.post<any>('http://localhost:3001/fazer-consulta',{data:query});
+  fazerConsulta(obj:any){
+    return this.http.post<any>('http://localhost:3001/fazer-consulta',{data:obj});
    }
+
+
+  getAllCategoria(){
+
+    return this.http.get<any>('http://localhost:3001/estatisticas-categorias');
+
+
+  }
+
 
 
 }

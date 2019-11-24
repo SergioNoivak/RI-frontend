@@ -25,7 +25,7 @@ export class EstatisticasComponent implements OnInit {
   tf: Array<any> = []
   radius = []
   highlightLabel = []
-  labels = [] 
+  labels = []
   grafico = null;
   mudarGrafico(documento:string){
     this.radius = this.labels =this.tf= []

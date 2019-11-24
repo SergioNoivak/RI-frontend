@@ -5,6 +5,7 @@ import { PaginaOpcoesComponent } from './pagina-opcoes/pagina-opcoes.component';
 import { ListarCorpusDocumentosComponent } from './listar-corpus-documentos/listar-corpus-documentos.component';
 import { EstatisticasComponent } from './estatisticas/estatisticas.component';
 import { ConsultasComponent } from './consultas/consultas.component';
+import { EstatisticasCategoriasComponent } from './estatisticas-categorias/estatisticas-categorias.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,9 @@ const routes: Routes = [
   },{
     path:'pagina-opcoes/consultas',
     component:ConsultasComponent
+  },{
+    path:'pagina-opcoes/estatisticas/categorias',
+    component:EstatisticasCategoriasComponent
   },
 ];
 

@@ -3,7 +3,7 @@
     flex: wrap;
   order: row;
   }
-  
+
 .cartao-listagem {
     border-top: 2px;
     border-top-style: solid;
@@ -14,4 +14,9 @@
     font-size: 20px;
     overflow-y: hidden;
   }
-  
+
+  .graficoDasBolas-esconder{
+
+    display: inherit;
+
+  }

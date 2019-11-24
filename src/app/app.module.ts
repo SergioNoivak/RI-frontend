@@ -12,6 +12,7 @@ import { ListarCorpusDocumentosComponent } from './listar-corpus-documentos/list
 import { EstatisticasComponent } from './estatisticas/estatisticas.component';
 import { ConsultasComponent } from './consultas/consultas.component'
 import { HttpClientModule } from '@angular/common/http';
+import { EstatisticasCategoriasComponent } from './estatisticas-categorias/estatisticas-categorias.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     ListarCorpusDocumentosComponent,
     EstatisticasComponent,
     ConsultasComponent,
+    EstatisticasCategoriasComponent,
     
   ],
   imports: [

@@ -1,7 +1,16 @@
-<wired-card class="cartao-listagem" elevation="1" elevation="4">
+
+<wired-card class="cartao-listagem" elevation="1" elevation="4" >
 Query
 
 <wired-input #query type="text" style="width: 70%;" placeholder="abacate banana revolução"></wired-input>
 <wired-button (click)="fazerConsulta()">Buscar</wired-button>
+
+
+<wired-combo selected="todos" #categoria  id="combo" >
+    <wired-item value="todos">todos</wired-item>
+  <wired-item *ngFor="let item of dropdownCategorias;"  [value]="item" >{{item}}</wired-item>
+
+</wired-combo>
+
 
 </wired-card>
