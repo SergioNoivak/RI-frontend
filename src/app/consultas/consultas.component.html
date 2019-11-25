@@ -13,4 +13,29 @@ Query
 </wired-combo>
 
 
+
+
+
+<table class="table " style="font-size: 30px;">
+    <thead>
+      <tr>
+          <th>Nome do documento</th>
+        <th>peso</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let item of documentosEPesos">
+
+
+        <td style="font-size: 30px;" scope="row">{{item.arquivo}}</td>
+        <td style="font-size: 30px;" scope="row">{{item.similaridade}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
 </wired-card>
