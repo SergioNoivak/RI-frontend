@@ -17,7 +17,7 @@ import { EstatisticasCategoriasComponent } from './estatisticas-categorias/estat
 
 @NgModule({
   declarations: [
-    
+
     AppComponent,
     HomeComponent,
     NavBarComponent,
@@ -27,13 +27,13 @@ import { EstatisticasCategoriasComponent } from './estatisticas-categorias/estat
     EstatisticasComponent,
     ConsultasComponent,
     EstatisticasCategoriasComponent,
-    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent],  schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -16,22 +16,24 @@ Query
 
 
 
-<table class="table " style="font-size: 30px;">
+<table  *ngIf="feitoConsulta"  class="table " style="font-size: 30px;">
     <thead>
       <tr>
           <th>Nome do documento</th>
         <th>peso</th>
+        <th>Relevante</th>
 
 
       </tr>
     </thead>
     <tbody>
 
-      <tr *ngFor="let item of documentosEPesos">
-
-
+      <tr *ngFor="let item of documentosEPesos" [ngStyle]="{'background-color': item.cor}">
         <td style="font-size: 30px;" scope="row">{{item.arquivo}}</td>
         <td style="font-size: 30px;" scope="row">{{item.similaridade}}</td>
+        <td  scope="row">
+          <img *ngIf="item.similaridade>0.5" src="./../../assets/fire.png" width="32px" height="32px" alt="" class="">
+        </td>
       </tr>
 
     </tbody>
@@ -39,3 +41,23 @@ Query
 
 
 </wired-card>
+<wired-card *ngIf="feitoConsulta"  class="cartao-listagem" elevation="1" elevation="4" >
+
+  <h1>Calculadora de métricas</h1>
+  Número de documentos retornados pelo sistema: {{numeroDeRelevantes}} (|A|)
+  <br>
+  Número de documentos avaliados <wired-input #R numer type="number" style="width: 20%;" placeholder=""></wired-input>
+  (|R|)
+
+<br>
+<div *ngIf="calculadoMetricas">
+
+  precisão = {{metricaPrecisao}}<br>
+  revocação = {{metricaRevocacao}}
+  F-measure = {{2*(metricaPrecisao*metricaRevocacao)/(metricaPrecisao+metricaRevocacao)}}
+
+</div>
+
+  <wired-button (click)="calcularMetricas()">Calcular</wired-button>
+
+  </wired-card>
